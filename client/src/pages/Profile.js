@@ -13,6 +13,7 @@ const Profile = () => {
   const { username: userParam } = useParams();
   
   console.log("wlr--",userParam);
+  
   const { loading, data } = useQuery(QUERY_USER, {
     variables: { username: userParam }
   });

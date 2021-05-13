@@ -37,7 +37,7 @@ const resolvers = {
         },
 
         user: async (parent, { username }) => {
-            return User.findOne({username: username})
+            return User.findOne({username: username}) //Default for findOne if not passing in the username
                 .select('-__v -password')
                 .populate('friends')
                 .populate('thoughts')
