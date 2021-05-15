@@ -56,5 +56,47 @@ export const QUERY_USER = gql`
         }
     }
 `;
+
+export const QUERY_ME = gql`
+    {
+        me {
+            _id
+            username
+            email
+            friendCount
+            thoughts {
+                _id
+                thoughtText
+                createdAt
+                reactionCount
+                reactions {
+                    _id
+                    createdAt
+                    reactionBody
+                    username
+                }
+            }
+            friends {
+                _id
+                username
+            }
+        }
+    }
+`;
+
+export const QUERY_ME_BASIC = gql`
+    {
+        me {
+            _id
+            username
+            email
+            friendCount
+            friends {
+                _id
+                username
+            }
+        }
+    }
+`;
 //We've used similar syntax from the test query we wrote using the GraphQL Playground earlier. Now we've wrapped the entire query code in a tagged template literal using the imported gql function. We've also saved it as QUERY_THOUGHTS and exported it using the ES6 module export syntax.
 //And just like that, we can import this query function by name and use it anywhere we need throughout the front end of the application. We'll do that next, so let's get to it!

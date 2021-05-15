@@ -7,7 +7,7 @@ const resolvers = {
     Query: {
         me: async (parent, args, context) => {
             if (context.user) {
-                const userData = await User.findOne({})
+                const userData = await User.findOne({ _id: context.user._id })
                     .select('-__v -password')
                     .populate('thoughts')
                     .populate('friends');
@@ -37,7 +37,7 @@ const resolvers = {
         },
 
         user: async (parent, { username }) => {
-            return User.findOne({username: username}) //Default for findOne if not passing in the username
+            return User.findOne({username}) //Default for findOne if not passing in the username
                 .select('-__v -password')
                 .populate('friends')
                 .populate('thoughts')
