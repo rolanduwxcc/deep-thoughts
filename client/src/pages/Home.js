@@ -12,7 +12,7 @@ const Home = () => {
   const { data: userData } = useQuery(QUERY_ME_BASIC);
 
   const thoughts = data?.thoughts || [];
-  console.log(thoughts);
+  //console.log(thoughts);
   //time for big data with option chaining
   //if anything exists in the 'data' property store it if not store '[]'
   //b-c if 'data' is undefined

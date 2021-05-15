@@ -67,11 +67,11 @@ const Profile = props => {
         </div>
 
         <div className="col-12 col-lg-3 mb-3">
-          <FriendList>
-            username={user.username}
+          <FriendList
             friendCount={user.friendCount}
+            username={user.username}
             friends={user.friends}
-          </FriendList>
+          />
         </div>
       </div>
       <div className="mb-3">
