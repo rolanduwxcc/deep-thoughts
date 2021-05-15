@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactionList from '../components/ReactionList';
+import ReactionForm from '../components/ReactionForm';
+import Auth from '../utils/auth';
 
 import { useParams } from 'react-router-dom';
 
@@ -34,6 +36,7 @@ const SingleThought = () => {
         </div>
       </div>
       {thought.reactionCount > 0 && <ReactionList reactions={thought.reactions} />}
+      {Auth.loggedIn() && <ReactionForm thoughtId={thought._id} />}
     </div>
   );
 };
